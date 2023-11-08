@@ -14,9 +14,12 @@ height = 1000
 screen = pygame.display.set_mode((width,height))
 
 # Main game loop
-while True:
+running = True
+while running:
     for e in pygame.event.get():
         if e.type == QUIT:
-            pygame.quit() # uninitialise all Pygame modules, release all resources
-            exit()        # exit program execution and Python interpreter
-    clock.tick(30)        # limit framerate to 30 frames per second
+            running = False  
+    clock.tick(30)  # limit framerate to 30 frames per second
+
+pygame.quit() # uninitialise all Pygame modules, release all resources
+exit()        # exit program execution and Python interpreter

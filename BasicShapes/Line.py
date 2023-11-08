@@ -1,18 +1,28 @@
-import pygame
+from pygame import *
+from pygame.locals import QUIT
+from sys import exit
 
-pygame.init()
-clock = pygame.time.Clock()
 
-screen = pygame.display.set_mode((1000,1000))
+init()
+clock = time.Clock()
 
-pygame.draw.line( screen, (255,0,0), (0,0), (1000,1000), 10 )
+screen = display.set_mode((1000,1000))
+color = (150,0,255)
+start = (1,1)
+end = (1000,1000)
+line_width = 5
 
-pygame.display.update()
+draw.line(screen, color, start, end, line_width)
 
-while True:
-    for e in pygame.event.get():
-        if e.type == pygame.QUIT:
-            pygame.exit()
-            quit()
+display.update()
 
-    clock.tick(60)
+running = True
+while running:
+    for e in event.get():
+        if e.type == QUIT:
+            running = False 
+    clock.tick(5) 
+
+quit() 
+exit() 
+

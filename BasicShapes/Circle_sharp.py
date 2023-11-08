@@ -1,4 +1,5 @@
 from pygame import *
+from pygame.locals import QUIT
 from sys import exit
 from pygame import gfxdraw
 
@@ -39,14 +40,14 @@ transform.smoothscale(virtual_screen, window_size, screen)
 # Update the display
 display.update()
 
-while True:
+# Main game loop
+running = True
+while running:
     for e in event.get():
-        if e.type == pygame.QUIT:
-            quit()
-            exit()
-    # Cap the framerate
-    clock.tick(10)
+        if e.type == QUIT:
+            running = False # leave the game 
+    clock.tick(30)  # limit framerate to 30 frames per second
 
-    
-
+quit() # uninitialise all Pygame modules, release all resources
+exit() # exit program execution and Python interpreter
 

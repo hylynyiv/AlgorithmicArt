@@ -1,26 +1,26 @@
 from pygame import *
 from pygame.locals import *
+from sys import exit
 
 init()
 clock = time.Clock()
 window = display.set_mode((500,500))
 
-draw.polygon(window, (100,134,234), ((0,0),(39,142), (221,350), (423,242)))
+color = (100,134,234)
+pos1 = (120,80)
+pos2 = (40,242)
+pos3 = (221,450)
+pos4 = (453,182)
 
-while True:
+draw.polygon(window, color, (pos1, pos2, pos3, pos4))
+display.update()
 
+running = True
+while running:
     for e in event.get():
         if e.type == QUIT:
-            quit()
-            exit()
+            running = False 
+    clock.tick(5) 
 
-        elif e.type == KEYDOWN:
-            if e.key == K_q:
-                quit()
-                exit()
-
-
-
-    display.update()
-
-    clock.tick(30)
+quit() 
+exit() 

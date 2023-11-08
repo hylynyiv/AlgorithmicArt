@@ -1,6 +1,7 @@
 from pygame import *
 from pygame.locals import *
-from webcolors import *
+from sys import exit
+
 
 init()
 
@@ -8,14 +9,18 @@ clock = time.Clock()
 
 screen = display.set_mode((500,500))
 
-while True:
+color = (100, 30, 255)
+draw.ellipse(screen, color, ( (200,200), (100,50) ) )
+display.update()
+
+# Main game loop
+running = True
+while running:
     for e in event.get():
         if e.type == QUIT:
-            quit()
-            exit()
+            running = False # leave the game 
+    clock.tick(30)  # limit framerate to 30 frames per second
 
-    draw.ellipse(screen, name_to_rgb("skyblue"), ( (200,200), (100,50) ) )
+quit() # uninitialise all Pygame modules, release all resources
+exit() # exit program execution and Python interpreter
 
-    display.update()
-
-    clock.tick(30)
