@@ -8,11 +8,16 @@ width = 1000
 height = 1000
 screen = pygame.display.set_mode((width,height))
 
-img = pygame.load("Images/cat.png")
+img = pygame.image.load("Images/cat.png")
 
-while True:
+running = True
+while running:
     for e in pygame.event.get():
         if e.type == QUIT:
-            pygame.quit()
-            exit()        
+            running = False
+    screen.blit(img, (0,0))
+    pygame.display.update()
     clock.tick(30)
+
+pygame.quit()
+exit()
