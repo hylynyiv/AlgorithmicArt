@@ -90,17 +90,13 @@ def Cube(vertices):
 max_distance = 100
 cube_dict = {i: set_vertices(max_distance) for i in range(20)}
 
-while True:
+running = True
+while running:
     for e in event.get():
-        if e.type == QUIT:
-            pygame.quit()
-            exit()
+        if e.type == QUIT or (e.type == KEYDOWN and e.key == K_q):
+            running = False
 
         if e.type == KEYDOWN:
-            if e.key == K_q:
-                pygame.quit()
-                exit()
-
             if e.key == K_LEFT:
                 glTranslatef(-0.5, 0, 0)
             if e.key == K_RIGHT:
@@ -111,12 +107,12 @@ while True:
             if e.key == K_DOWN:
                 glTranslatef(0, -1, 0)
 
-        if e.type == MOUSEBUTTONDOWN:
-            if e.button == 4:
-                glTranslatef(0, 0, 1.0)
+            if e.type == MOUSEBUTTONDOWN:
+                if e.button == 4:
+                    glTranslatef(0, 0, 1.0)
 
-            if e.button == 5:
-                glTranslatef(0, 0, -1.0)
+                if e.button == 5:
+                    glTranslatef(0, 0, -1.0)
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
@@ -131,3 +127,6 @@ while True:
 
     display.flip()
     clock.tick(60)
+
+quit()
+exit()
